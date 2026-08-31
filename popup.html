@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dola Video Watermark Remover</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <img src="icon128.png" class="brand-img" alt="Logo">
+                <div class="brand-text">
+                    <h1 class="title">Dola Downloader</h1>
+                    <span class="version-label">1080p Raw HD</span>
+                </div>
+            </div>
+            <div class="status-indicator" id="header-status">
+                <span class="status-dot"></span>
+                <span class="status-text">Active</span>
+            </div>
+        </header>
+
+        <!-- Master Auto-Download Section -->
+        <section class="section">
+            <div class="toggle-row">
+                <div class="toggle-info">
+                    <h2 class="section-heading">Auto-Download Videos</h2>
+                    <p class="section-desc">Automatically saves unwatermarked 1080p raw MP4s as soon as generation completes.</p>
+                </div>
+                <label class="switch" title="Toggle Auto-Download">
+                    <input id="dola-auto-download-toggle" type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="feature-bullets">
+                <span>1080p Raw Stream</span>
+                <span class="bullet-sep">•</span>
+                <span>Watermark-Free</span>
+                <span class="bullet-sep">•</span>
+                <span>Direct Save</span>
+            </div>
+        </section>
+
+        <!-- Primary Action -->
+        <section class="section">
+            <button id="btn-download-screen" class="btn-action" type="button">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span id="btn-download-screen-text">Download Video on Screen</span>
+            </button>
+        </section>
+
+        <!-- Stats & Folder Configuration -->
+        <section class="section stats-folder-section">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-label">Total Saved</span>
+                    <span id="dola-metric-count" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Stream Quality</span>
+                    <span class="stat-value text-emerald">1080p Master</span>
+                </div>
+            </div>
+
+            <div class="folder-row">
+                <label for="dola-subfolder-input" class="folder-label">Destination Folder</label>
+                <div class="folder-input-group">
+                    <input type="text" id="dola-subfolder-input" class="input-text" placeholder="Folder: Dola_Videos" spellcheck="false">
+                    <button id="btn-dola-save-folder" class="btn-secondary" type="button">Save</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download History Section -->
+        <section class="section history-section">
+            <div class="history-header">
+                <h3 class="history-title">Download History (<span id="dola-history-count">0</span>)</h3>
+                <button id="btn-dola-clear-history" class="btn-text-danger" type="button">Clear</button>
+            </div>
+
+            <div class="history-list divide-y" id="dola-history-list">
+                <div class="empty-state">
+                    No videos downloaded yet.<br>
+                    Generate any video on Dola AI or Doubao to download unwatermarked videos automatically.
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>Dola AI &amp; Doubao Stream Interceptor</span>
+        </footer>
+
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

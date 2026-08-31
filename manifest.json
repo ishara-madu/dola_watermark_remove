@@ -1,0 +1,96 @@
+{
+  "manifest_version": 3,
+  "name": "Dola AI Video Watermark Remover & Downloader",
+  "version": "1.0.0",
+  "description": "Automatically download 100% Watermark-Free 1080P Raw MP4 videos from Dola AI and Doubao.",
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "storage",
+    "downloads",
+    "notifications",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.dola.com/*",
+    "*://*.doubao.com/*",
+    "*://*.seaart.ai/*",
+    "*://*.byteintl.com/*",
+    "*://*.ibytedtos.com/*",
+    "https://dola.com/*",
+    "https://www.dola.com/*",
+    "https://doubao.com/*",
+    "https://www.doubao.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.doubao.com/*",
+        "https://*.doubao.com/*",
+        "https://dola.com/*",
+        "https://www.dola.com/*",
+        "https://*.dola.com/*",
+        "*://*.dola.com/*",
+        "*://*.seaart.ai/*"
+      ],
+      "js": [
+        "extractor.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://www.doubao.com/*",
+        "https://*.doubao.com/*",
+        "https://dola.com/*",
+        "https://www.dola.com/*",
+        "https://*.dola.com/*",
+        "*://*.dola.com/*",
+        "*://*.seaart.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Dola Watermark-Free Downloader",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "extractor.js",
+        "icon16.png",
+        "icon32.png",
+        "icon48.png",
+        "icon128.png"
+      ],
+      "matches": [
+        "https://www.doubao.com/*",
+        "https://*.doubao.com/*",
+        "https://dola.com/*",
+        "https://www.dola.com/*",
+        "https://*.dola.com/*",
+        "*://*.dola.com/*",
+        "*://*.seaart.ai/*"
+      ]
+    }
+  ]
+}
