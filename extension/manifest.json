@@ -1,0 +1,61 @@
+{
+  "manifest_version": 3,
+  "name": "Dola Video Watermark Remover",
+  "short_name": "DolaRemover",
+  "version": "1.0.0",
+  "description": "Automatically remove watermarks from Dola AI videos and download clean HD MP4 videos with 1 click.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Dola Video Watermark Remover",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.dola.ai/*",
+        "*://*.dolai.video/*",
+        "*://*.dola.com/*",
+        "*://dola.ai/*",
+        "*://dolai.video/*",
+        "*://dola.com/*"
+      ],
+      "js": ["scripts/content.js"],
+      "css": ["scripts/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "downloads",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.dola.ai/*",
+    "*://*.dolai.video/*",
+    "*://*.dola.com/*",
+    "*://dola.ai/*",
+    "*://dolai.video/*",
+    "*://dola.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

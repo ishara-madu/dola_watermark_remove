@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://ishara-madu.github.io/dola_watermark_remove/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ishara-madu.github.io/dola_watermark_remove/assets/favicon-96x96.png</image:loc>
+      <image:title>Dola Video Watermark Remover Extension Icon</image:title>
+    </image:image>
+  </url>
+</urlset>

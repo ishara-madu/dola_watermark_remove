@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ishara-madu.github.io/dola_watermark_remove/sitemap.xml

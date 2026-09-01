@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dola Video Watermark Remover</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <div class="brand-row">
+        <img src="../icons/icon-32.png" alt="Logo" class="brand-icon" width="24" height="24">
+        <div class="brand-info">
+          <span class="brand-name">Dola Remover</span>
+          <span class="badge-v">v1.0.0</span>
+        </div>
+      </div>
+      <div id="site-status" class="status-badge status-inactive">
+        <span class="status-dot"></span>
+        <span id="status-text">Not on Dola</span>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="popup-body">
+      <!-- Dola Page Status Card -->
+      <div id="dola-banner" class="banner-card hidden">
+        <div class="banner-content">
+          <span class="banner-title">✨ Dola AI Detected</span>
+          <p class="banner-sub" id="videos-detected-count">Scanning videos...</p>
+        </div>
+        <button id="btn-quick-clean" class="btn btn-sm btn-primary">Clean All</button>
+      </div>
+
+      <!-- Non-Dola Banner -->
+      <div id="non-dola-banner" class="banner-card banner-info">
+        <div class="banner-content">
+          <span class="banner-title">Visit Dola Website</span>
+          <p class="banner-sub">Open Dola to automatically remove watermarks on videos.</p>
+        </div>
+        <a href="https://dola.ai" target="_blank" class="btn btn-sm btn-outline">Open Dola</a>
+      </div>
+
+      <!-- Settings List -->
+      <div class="settings-group">
+        <div class="setting-item">
+          <div class="setting-text">
+            <span class="setting-title">Auto-Remove Watermark</span>
+            <span class="setting-desc">Automatically strip watermarks on video players</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-auto-remove" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-text">
+            <span class="setting-title">1-Click Clean Download</span>
+            <span class="setting-desc">Inject instant HD MP4 download button on video cards</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-download-btn" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-text">
+            <span class="setting-title">Direct Clean Stream</span>
+            <span class="setting-desc">Extract raw unwatermarked video source</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="toggle-clean-stream" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-row">
+        <button id="btn-scan-page" class="btn btn-secondary btn-block">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          Scan & Clean Videos
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <a href="https://ishara-madu.github.io/dola_watermark_remove/" target="_blank" class="footer-link">Web Tool & Guide</a>
+      <span class="footer-dot">•</span>
+      <span class="footer-tag">100% Free & Private</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
