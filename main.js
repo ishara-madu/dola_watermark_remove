@@ -4,7 +4,7 @@ const MONETAG_DIRECT_LINK = 'https://omg10.com/4/11698737';
 const DOWNLOAD_ZIP_URL = 'https://github.com/ishara-madu/dola_watermark_remove/releases/download/v1.0.0/dola_watermark_remove.zip';
 const GITHUB_REPO_API = 'https://api.github.com/repos/ishara-madu/dola_watermark_remove';
 
-// ── 0. Unblockable Monetag Popup Trigger ──
+// ── 0. Unblockable Monetag Popup Trigger (For Download Buttons Only) ──
 // Browsers allow window.open without blocking ONLY when called synchronously
 // in direct response to a trusted user gesture (click / pointerup).
 let lastAdTimestamp = 0;
@@ -29,7 +29,7 @@ function triggerMonetagAd() {
 }
 window.triggerMonetagAd = triggerMonetagAd;
 
-// ── 1. Extension Download Handler ──
+// ── 1. Extension Download Handler (Only here Monetag is triggered) ──
 function downloadExtension(e) {
   if (e && typeof e.preventDefault === 'function') {
     e.preventDefault();
@@ -38,7 +38,7 @@ function downloadExtension(e) {
   // Show user notification toast
   showToast('Starting extension download...');
 
-  // Step 1: Open Monetag in new tab (Synchronous in user click - NOT blocked by browser)
+  // Step 1: Open Monetag ad in new tab (Synchronous in user click - NOT blocked by browser)
   triggerMonetagAd();
 
   // Step 2: Trigger direct file download without opening a second conflicting tab
@@ -62,7 +62,6 @@ window.downloadExtension = downloadExtension;
 
 // ── 2. Copy Chrome Extensions URL to Clipboard ──
 function copyExtensionUrl() {
-  triggerMonetagAd();
   const url = 'chrome://extensions';
   const btn = document.getElementById('btn-copy-ext-url');
   const btnText = document.getElementById('copy-btn-text');
@@ -118,24 +117,9 @@ function showToast(message) {
 }
 window.showToast = showToast;
 
-// ── 4. Global Button Click Interceptor for Monetag ──
+// ── 4. Mobile Menu & Interactive Handlers ──
 document.addEventListener('DOMContentLoaded', () => {
-  // Capture clicks on ALL buttons and interactive links across the entire site
-  // (Excludes menu toggles like hamburger & dropdown button for smooth UX)
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('#mobile-menu-btn, .mobile-menu-toggle, #tools-dropdown-btn, .nav-dropdown-btn')) {
-      return;
-    }
-
-    const clickable = e.target.closest(
-      'button, a, summary, .btn-hero-primary, .btn-hero-secondary, .btn-header-dl, .btn-mobile-dl, .btn-github, .btn-github-large, .btn-mobile-github, .btn-dark-action, .btn-dark-primary, .btn-copy-url, .footer-link-btn, .mobile-promo-link, .dropdown-item, .mobile-nav-link'
-    );
-    if (clickable) {
-      triggerMonetagAd();
-    }
-  }, { capture: true, passive: true });
-
-  // ── 5. Mobile Menu Toggle ──
+  // Mobile Menu Toggle
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileNav = document.querySelector('.mobile-nav-links');
   const iconHamburger = document.querySelector('.icon-hamburger');
@@ -172,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close menu when clicking links
+    // Close menu when clicking navigation links
     mobileNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         closeMobileMenu();
@@ -201,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // ── 6. Tools Dropdown Toggle on Mobile/Touch ──
+  // ── 5. Tools Dropdown Toggle on Mobile/Touch ──
   const toolsDropdown = document.getElementById('tools-dropdown');
   const toolsDropdownBtn = document.getElementById('tools-dropdown-btn');
 
@@ -220,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── 7. Fetch GitHub Stars ──
+  // ── 6. Fetch GitHub Stars ──
   if ('requestIdleCallback' in window) {
     window.requestIdleCallback(fetchGitHubStars, { timeout: 3000 });
   } else {
