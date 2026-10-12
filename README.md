@@ -136,7 +136,7 @@ This extension requests minimal permissions required for its functionality:
 - `scripting` & `tabs`: To inject the stream extractor into Dola AI and Doubao tabs.
 - `host_permissions`: Limited strictly to `dola.com`, `doubao.com`, and related CDN domains for stream decryption.
 
-> **Note**: No user data, prompts, or video streams are ever transmitted to any third-party servers. All operations happen 100% locally in your browser.
+> **Note**: No user data, prompts, or video streams are ever transmitted to any third-party servers. All operations happen 100% locally in your browser. For full details, see our [Privacy Policy](PRIVACY_POLICY.md).
 
 ---
 
