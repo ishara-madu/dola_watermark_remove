@@ -126,17 +126,26 @@ dola_watermark_remove/
 
 ---
 
-## Permissions & Privacy
+<a id="privacy" name="privacy"></a>
+## Privacy Policy
 
-This extension requests minimal permissions required for its functionality:
+**Dola AI Video Watermark Remover & Downloader** is built with a strict **privacy-first, client-side only** architecture. All video stream interception, token decryption, and file downloads execute 100% locally within your browser.
 
-- `storage`: To save your custom settings (folder path, auto-download preference) and download history locally.
-- `downloads`: To save the decrypted MP4 files into your downloads folder.
-- `notifications`: To display optional completion notifications when a video finishes downloading.
-- `scripting` & `tabs`: To inject the stream extractor into Dola AI and Doubao tabs.
-- `host_permissions`: Limited strictly to `dola.com`, `doubao.com`, and related CDN domains for stream decryption.
+### Key Privacy Guarantees
+- **Zero Telemetry & Tracking:** No remote analytics, tracking pixels, or diagnostic beacons.
+- **No Data Collection:** We do not collect, store, or transmit your creative prompts, generated videos, IP addresses, or browsing history.
+- **Zero Server Communication:** No background calls to external proxy or relay servers. Video streams download directly from official CDNs to your local disk.
 
-> **Note**: No user data, prompts, or video streams are ever transmitted to any third-party servers. All operations happen 100% locally in your browser. For full details, see our [Privacy Policy](PRIVACY_POLICY.md).
+### Permissions & Data Scope
+| Permission | Purpose | Data Scope |
+| :--- | :--- | :--- |
+| `storage` | Saves user preferences (e.g., auto-download toggle, download folder name, download history log) | Local only (`chrome.storage.local`); never synced or sent to any server. |
+| `downloads` | Saves unwatermarked `.mp4` video files to your downloads directory | Local disk access via browser Downloads API. |
+| `notifications` | Displays an optional desktop notification when a download completes | Local display only; no remote data transfer. |
+| `scripting` & `tabs` | Injects stream extraction and token decryption logic into active tabs | Active tab session only on supported video platforms. |
+| `host_permissions` | Intercepts streams and master tokens on `*.dola.com`, `*.doubao.com`, `*.seaart.ai`, and related CDNs | Strictly scoped to video generation and delivery domains. |
+
+> **Full Document:** For the complete, formal legal disclosure, see the standalone [PRIVACY_POLICY.md](PRIVACY_POLICY.md) file.
 
 ---
 
